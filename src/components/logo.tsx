@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface LogoProps {
   width?: number;
   height?: number;
@@ -10,7 +12,7 @@ export const Logo: React.FC<LogoProps> = ({
   className = "",
 }) => {
   return (
-    <img
+    <Image
       width={width}
       height={height}
       src={className.includes("dark") ? "/NeighborVariantLogo.svg" : "/NeighborDefaultLogo.svg"}

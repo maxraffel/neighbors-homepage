@@ -2,7 +2,7 @@
 
 import { Logo } from "@/components/logo";
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
+// import { Separator } from "@/components/ui/separator";
 
 export function Footer3() {
   return (
