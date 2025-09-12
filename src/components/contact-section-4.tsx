@@ -158,7 +158,7 @@ export function ContactSection4() {
             {/* Status Messages */}
             {status === 'success' && (
               <div className="text-green-600 text-sm font-medium">
-                Message sent successfully! We'll get back to you soon.
+                Message sent successfully! We&apos;ll get back to you soon.
               </div>
             )}
             {status === 'error' && (
