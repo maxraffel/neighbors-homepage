@@ -21,7 +21,7 @@ export function HeroSection1() {
             <Tagline>Your future, made simple</Tagline>
             {/* Main Heading */}
             <h1 id="hero-heading" className="heading-xl text-foreground">
-              Building lasting wealth starts with trusted neighbors by your side.
+              Building lasting wealth starts with trusted <span className="text-accent-1">neighbors</span> by your side.
             </h1>
             {/* Description */}
             <p className="text-muted-foreground text-base lg:text-lg">
