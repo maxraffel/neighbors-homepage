@@ -9,8 +9,48 @@ import { Phone, Mail } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { Tagline } from "@/components/tagline";
+import { useState } from "react";
 
 export function ContactSection4() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setStatus('idle');
+    
+    try {
+      const response = await fetch('/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+      console.error('Error sending email:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
   return (
     <section
       className="bg-background py-16 md:py-0"
@@ -69,7 +109,7 @@ export function ContactSection4() {
           {/* Contact Form */}
           <form
             className="flex w-full max-w-md flex-col gap-5 md:gap-6"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             aria-label="Contact form"
           >
             {/* Name Input */}
@@ -81,6 +121,8 @@ export function ContactSection4() {
                 required
                 aria-required="true"
                 className="bg-background"
+                value={formData.name}
+                onChange={(e) => handleInputChange('name', e.target.value)}
               />
             </div>
 
@@ -94,6 +136,8 @@ export function ContactSection4() {
                 required
                 aria-required="true"
                 className="bg-background"
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
               />
             </div>
 
@@ -106,8 +150,22 @@ export function ContactSection4() {
                 className="bg-background min-h-[106px]"
                 required
                 aria-required="true"
+                value={formData.message}
+                onChange={(e) => handleInputChange('message', e.target.value)}
               />
             </div>
+
+            {/* Status Messages */}
+            {status === 'success' && (
+              <div className="text-green-600 text-sm font-medium">
+                Message sent successfully! We'll get back to you soon.
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="text-red-600 text-sm font-medium">
+                Error sending message. Please try again.
+              </div>
+            )}
 
             {/* Privacy Policy Checkbox */}
             {/* <div className="flex items-center gap-2">
@@ -130,8 +188,8 @@ export function ContactSection4() {
             </div> */}
 
             {/* Submit Button */}
-            <Button type="submit" className="w-full">
-              Send message
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? 'Sending...' : 'Send message'}
             </Button>
           </form>
         </div>
