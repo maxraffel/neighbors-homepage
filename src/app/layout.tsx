@@ -28,8 +28,7 @@ const crimsonPro2 = Crimson_Pro({
 
 
 export const metadata: Metadata = {
-  title: "Neighbors",
-  description: "Neighbors Wealth Management Homepage",
+  title: "Neighbors Wealth Management",
   icons: {
     icon: "/NeighborDefaultLogoSmall.svg"
   }

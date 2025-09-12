@@ -71,30 +71,30 @@ export function ContactSection4() {
               </h1>
               {/* Description */}
               <p className="text-muted-foreground">
-                Let’s start a conversation about your financial future. Whether you’re planning for retirement, growing your investments, or simply looking for clarity, we’re here to listen and understand your unique goals.
-                <br></br><br></br>At Neighbors Wealth Management, we believe every client deserves guidance that feels personal and approachable. Reach out today, and together we’ll take the first step toward building lasting wealth and peace of mind.
+                Let&apos;s start a conversation about your financial future. Whether you&apos;re planning for retirement, growing your investments, or simply looking for clarity, we&apos;re here to listen and understand your unique goals.
+                <br></br><br></br>At Neighbors Wealth Management, we believe every client deserves guidance that feels personal and approachable. Reach out today, and together we&apos;ll take the first step toward building lasting wealth and peace of mind.
               </p>
             </div>
 
             {/* Contact Links */}
             <div className="flex flex-col gap-4">
               {/* Phone Link */}
-              <Link href="#" className="flex items-start gap-3 hover:underline">
+              <Link href="tel:+18632247471" className="flex items-start gap-3 hover:underline">
                 <div className="pt-0.5">
                   <Phone className="text-primary h-5 w-5" />
                 </div>
                 <span className="text-card-foreground text-base leading-6 font-medium">
-                  (406) 555-0120
+                  (863) 224-7471
                 </span>
               </Link>
 
               {/* Email Link */}
-              <Link href="#" className="flex items-start gap-3 hover:underline">
+              <Link href="mailto:scott@neighborsgrp.com" className="flex items-start gap-3 hover:underline">
                 <div className="pt-0.5">
                   <Mail className="text-primary h-5 w-5" />
                 </div>
                 <span className="text-card-foreground text-base leading-6 font-medium">
-                  hello@example.com
+                  scott@neighborsgrp.com
                 </span>
               </Link>
             </div>

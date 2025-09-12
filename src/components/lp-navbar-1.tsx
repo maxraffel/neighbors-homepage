@@ -77,14 +77,14 @@ export function LpNavbar1() {
         {/* Desktop Navigation */}
         <div className="hidden w-full flex-row justify-end gap-5 md:flex">
           {/* <NavMenuItems /> */}
-          <Button onClick={handleGetStarted}>Get started</Button>
+          <Button onClick={handleGetStarted}>Contact us</Button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="flex w-full flex-col justify-end gap-5 pb-2.5 md:hidden">
             {/* <NavMenuItems /> */}
-            <Button className="w-full" onClick={handleGetStarted}>Get started</Button>
+            <Button className="w-full" onClick={handleGetStarted}>Contact us</Button>
           </div>
         )}
       </div>

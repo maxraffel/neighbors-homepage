@@ -78,7 +78,7 @@ export function TermsOfService() {
               Contact Us:
             </h2>
             <p className="leading-7 text-muted-foreground">
-              If you have any questions about these terms, please contact us at:<br></br>Email: privacy@inspiro.com<br></br>Phone: +48 123 456 789
+              If you have any questions about these terms, please contact us at:<br></br>Email: <a href="mailto:scott@neighborsgrp.com" className="underline">scott@neighborsgrp.com</a><br></br>Phone: <a href="tel:+18632247471" className="underline">+1 (863) 224-7471</a>
             </p>
           </div>
         </article>
