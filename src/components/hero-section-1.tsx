@@ -37,7 +37,7 @@ export function HeroSection1() {
 
         {/* Right Column */}
         <div className="w-full flex-1">
-          <AspectRatio ratio={1 / 1}>
+          <AspectRatio ratio={670 / 584}>
             <Image
               src="/HighFive.jpg"
               alt="Hero section visual"
