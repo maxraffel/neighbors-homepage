@@ -15,6 +15,7 @@ export function ContactSection4() {
     <section
       className="bg-background py-16 md:py-0"
       aria-labelledby="contact-heading"
+      id="contact"
     >
       <div className="flex flex-col gap-8 md:flex-row md:gap-0">
         {/* Left Column */}

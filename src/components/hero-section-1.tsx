@@ -7,6 +7,16 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 
 export function HeroSection1() {
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section
       className="dark bg-background section-padding-y"
@@ -31,7 +41,13 @@ export function HeroSection1() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button variant="outline" className="dark">Chat with our experts</Button>
+            <Button 
+              variant="outline" 
+              className="dark" 
+              onClick={scrollToContact}
+            >
+              Chat with our experts
+            </Button>
           </div>
         </div>
 

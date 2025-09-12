@@ -31,13 +31,13 @@ export function Footer3() {
             </p>
             </div>
             <Link
-              href="#"
+              href="/privacy"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
-              href="#"
+              href="/terms"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Terms of Service

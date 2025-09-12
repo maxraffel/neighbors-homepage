@@ -5,35 +5,57 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 
-const MENU_ITEMS = [
-  { label: "Products", href: "#" },
-  { label: "Use cases", href: "#" },
-  { label: "Docs", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "FAQ", href: "#" },
-] as const;
+// const MENU_ITEMS = [
+//   { label: "Products", href: "#" },
+//   { label: "Use cases", href: "#" },
+//   { label: "Docs", href: "#" },
+//   { label: "Pricing", href: "#" },
+//   { label: "FAQ", href: "#" },
+// ] as const;
 
-interface NavMenuItemsProps {
-  className?: string;
-}
+// interface NavMenuItemsProps {
+//   className?: string;
+// }
 
-const NavMenuItems = ({ className }: NavMenuItemsProps) => (
-  <div className={`flex flex-col gap-1 md:flex-row ${className ?? ""}`}>
-    {MENU_ITEMS.map(({ label, href }) => (
-      <Link key={label} href={href}>
-        <Button variant="ghost" className="w-full md:w-auto">
-          {label}
-        </Button>
-      </Link>
-    ))}
-  </div>
-);
+// const NavMenuItems = ({ className }: NavMenuItemsProps) => (
+//   <div className={`flex flex-col gap-1 md:flex-row ${className ?? ""}`}>
+//     {MENU_ITEMS.map(({ label, href }) => (
+//       <Link key={label} href={href}>
+//         <Button variant="ghost" className="w-full md:w-auto">
+//           {label}
+//         </Button>
+//       </Link>
+//     ))}
+//   </div>
+// );
 
 export function LpNavbar1() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  const handleGetStarted = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Check if we're on the homepage
+    if (pathname === '/') {
+      // Same page - smooth scroll to contact
+      const contactElement = document.getElementById('contact');
+      if (contactElement) {
+        contactElement.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    } else {
+      // Different page - navigate to homepage with contact hash
+      router.push('/#contact');
+    }
+  };
 
   return (
     <nav className="dark bg-background sticky top-0 isolate z-50 py-3.5 md:py-4">
@@ -54,19 +76,15 @@ export function LpNavbar1() {
 
         {/* Desktop Navigation */}
         <div className="hidden w-full flex-row justify-end gap-5 md:flex">
-          <NavMenuItems />
-          <Link href="#">
-            <Button>Get started</Button>
-          </Link>
+          {/* <NavMenuItems /> */}
+          <Button onClick={handleGetStarted}>Get started</Button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="flex w-full flex-col justify-end gap-5 pb-2.5 md:hidden">
-            <NavMenuItems />
-            <Link href="#">
-              <Button className="w-full">Get started</Button>
-            </Link>
+            {/* <NavMenuItems /> */}
+            <Button className="w-full" onClick={handleGetStarted}>Get started</Button>
           </div>
         )}
       </div>
