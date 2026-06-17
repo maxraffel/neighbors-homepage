@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Crimson_Pro } from "next/font/google";
 import "./globals.css";
 import { Footer3 } from "@/components/footer-3";
 import { LpNavbar1 } from "@/components/lp-navbar-1";
+import { Disclaimer } from "@/components/disclaimer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
         <LpNavbar1 />
         {children}
         <Footer3 />
+        <Disclaimer />
       </body>
     </html>
   );

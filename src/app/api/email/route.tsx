@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import * as React from 'react';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const TO_EMAIL = process.env.RESEND_TO_EMAIL || 'scott@neighborswealthmgmt.com';
 
 export async function POST(request: Request) {
   try {
@@ -11,7 +12,7 @@ export async function POST(request: Request) {
     
     const { data, error } = await resend.emails.send({
       from: 'Neighbors Notifications <onboarding@resend.dev>',
-      to: [process.env.RESEND_TO_EMAIL],
+      to: [TO_EMAIL],
       subject: `New message from ${name}`,
       react: <EmailTemplate name={name} email={email} message={message} />,
     });

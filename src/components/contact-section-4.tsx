@@ -89,12 +89,12 @@ export function ContactSection4() {
               </Link>
 
               {/* Email Link */}
-              <Link href="mailto:scott@neighborsgrp.com" className="flex items-start gap-3 hover:underline">
+              <Link href="mailto:scott@neighborswealthmgmt.com" className="flex items-start gap-3 hover:underline">
                 <div className="pt-0.5">
                   <Mail className="text-primary h-5 w-5" />
                 </div>
                 <span className="text-card-foreground text-base leading-6 font-medium">
-                  scott@neighborsgrp.com
+                  scott@neighborswealthmgmt.com
                 </span>
               </Link>
             </div>
