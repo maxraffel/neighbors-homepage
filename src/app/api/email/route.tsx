@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     
     const { data, error } = await resend.emails.send({
       from: 'Neighbors Notifications <onboarding@resend.dev>',
-      to: ['mraffel@usc.edu'],
+      to: [process.env.RESEND_TO_EMAIL],
       subject: `New message from ${name}`,
       react: <EmailTemplate name={name} email={email} message={message} />,
     });
